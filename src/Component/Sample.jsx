@@ -1,31 +1,39 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
-const Sample = (props) => {
-    const [counter, setCounter] = useState(0);
-    const { data } = props
-    function clickButton() {
+const SampleComponent = (props) => {
+    const [counter, setCounter] = useState(0)
+    const { data } =  props
+
+    function clickButton () {
         const { getData } = props
-        getData({counter})
+        getData(counter)
         setCounter(counter + 1)
         console.log(data)
     }
 
-    return(
+    return (
         <div>
-            <h1> This is a sample to use redux-saga in react </h1>
+            <h1>Hello World!</h1>
             <br></br>
-            <div>{ counter }</div>
-            <br></br>
-            <button onClick={ () => clickButton() }>click me to call data</button>
+            <div>Click {counter} times</div>
+            <button onClick={() => clickButton()}>Sample Button</button>
+            <div>
             {
                 data?
                 <div>
                   <table>
+                    <thead>
+                        <tr>
+                            <td>TID</td>
+                            <td>TName</td>
+                            <td>TDes</td>
+                        </tr>
+                    </thead>
                     <tbody>
                     {
                         data.map(item => {
                             return(
-                                <tr>
+                                <tr key={item["TID"]}>
                                     <td>{item["TID"]}</td>
                                     <td>{item["TName"]}</td>
                                     <td>{item["TDes"]}</td>
@@ -37,8 +45,9 @@ const Sample = (props) => {
                   </table>
                 </div> : <div>no data yet</div>
             }
+            </div>
         </div>
     )
 }
 
-export default Sample
+export default SampleComponent

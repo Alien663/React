@@ -1,4 +1,4 @@
-import { GET_SAMPLE, SET_SAMPLE } from '../actions'
+import { GET_SAMPLE, SET_SAMPLE } from '../Action'
 
 const initialState = {
     data: [],
@@ -6,7 +6,7 @@ const initialState = {
     counter: 0,
 }
 
-const Sample = (state = initialState, action) => {
+const SampleReducer = (state = initialState, action) => {
     switch(action.type){
         case GET_SAMPLE:
             return {
@@ -23,5 +23,4 @@ const Sample = (state = initialState, action) => {
     }
 }
 
-
-export default Sample
+export default SampleReducer

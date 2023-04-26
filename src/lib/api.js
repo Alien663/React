@@ -1,8 +1,16 @@
 import axios from 'axios'
 
 //const apiurl = 'http://localhost:59089/api';
-const apiurl = '/api';
-const cors = true;
+const config = {
+    apiurl: '/api',
+    cors: false,
+}
+
+if(process.env.NODE_ENV === 'development'){
+    config.apiurl = "http://localhost:59089/api",
+    config.cors = true
+}
+
 
 export default function ({
 	cmd,
@@ -14,7 +22,7 @@ export default function ({
 }) {
 	method = method.toUpperCase()
 	type = type.toLowerCase()
-	let url = `${apiurl}/${cmd}`
+	let url = `${config.apiurl}/${cmd}`
 	let option = {
 		method,
 		headers: {
@@ -43,7 +51,7 @@ export default function ({
 			method,
 			url,
 			...option,
-			withCredentials: !!cors,
+			withCredentials: !! config.cors,
 		}).then((res) => {
 			return	{
 				ok:res.status=='200',

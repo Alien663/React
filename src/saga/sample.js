@@ -1,37 +1,37 @@
 import { call, put } from 'redux-saga/effects'
-import * as actoins from '../actions'
+import * as actoins from '../Action'
 
 const get_sample = (req) => {
     return new Promise((resolve, reject) => {
         resolve({
             "body":[
                 {
-                    "TID": req.counter * 7 + 1,
+                    "TID": req * 6 + 1,
                     "TName": "我不會飛",
                     "TDes": "abcd"
                 },
                 {
-                    "TID": req.counter * 7 + 2,
+                    "TID": req * 6 + 2,
                     "TName": "abcd",
                     "TDes": "abcd"
                 },
                 {
-                    "TID": req.counter * 7 + 3,
+                    "TID": req * 6 + 3,
                     "TName": "A1",
                     "TDes": "B1"
                 },
                 {
-                    "TID": req.counter * 7 + 4,
+                    "TID": req * 6 + 4,
                     "TName": "A2",
                     "TDes": "B2"
                 },
                 {
-                    "TID": req.counter * 7 + 5,
+                    "TID": req * 6 + 5,
                     "TName": "A3",
                     "TDes": "B3"
                 },
                 {
-                    "TID": req.counter * 7 + 6,
+                    "TID": req * 6 + 6,
                     "TName": "A4",
                     "TDes": "B4"
                 }

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import Sample from '../components/Sample'
-import { GetSample } from '../actions'
+import Sample from '../Component/Sample'
+import { GetSample } from '../Action'
 
 const mapStateToProps = (state) => ({
     data: state.Sample.data,

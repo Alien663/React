@@ -1,16 +1,17 @@
 import { Route, Routes } from 'react-router-dom'
-import './App.css';
+import Main from '../Component/Main'
+import Sample from './Sample'
 
-import Sample from './components/Sample'
-import Main from './components/Main'
+
+import '../Style/App.css';
 
 function App() {
   return (
     <Routes>
       <Route path='/sample' element={<Sample />}></Route>
-      <Route path='/' element={ <Main /> }></Route>
+      <Route path='/' element={ <Main /> } />
     </Routes>
-  )
+  );
 }
 
 export default App;

@@ -1,9 +1,8 @@
 function action (type, payload = {}) {
     return {
-      type,
-      ...payload
+        type,
+        ...payload
     }
-  }
+}
   
-  export default action
-  
+export default action

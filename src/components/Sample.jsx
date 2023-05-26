@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const Sample = (props) => {
     const [counter, setCounter] = useState(0)
-    const [data, setData] = useState(0)
+    const [data, setData] = useState([])
 
     const get_sample = (req) => {
         return new Promise((resolve, reject) => {
@@ -55,7 +55,7 @@ const Sample = (props) => {
         <div>
             <h1> This is a sample to use redux-saga in react </h1>
             <br></br>
-            <div>{ counter }</div>
+            <div>Click { counter } times</div>
             <br></br>
             <button onClick={ () => clickButton() }>click me to call data</button>
             {
@@ -64,9 +64,9 @@ const Sample = (props) => {
                   <table>
                     <tbody>
                         {
-                            data.map(item => {
+                            data.map((item, idx) => {
                                 return(
-                                    <tr>
+                                    <tr key={idx}>
                                         <td>{item["TID"]}</td>
                                         <td>{item["TName"]}</td>
                                         <td>{item["TDes"]}</td>

@@ -11,6 +11,7 @@ const Main = () => {
       </p>
       <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
       <a className="App-link" href="/sample" rel="noopener noreferrer">Sample Page</a>
+      <a className="App-link" href="/test" rel="noopener noreferrer">Test Page</a>
     </header>
   </div>
 }

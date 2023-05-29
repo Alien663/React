@@ -66,7 +66,7 @@ const Sample = (props) => {
                         {
                             data.map((item, idx) => {
                                 return(
-                                    <tr key={idx}>
+                                    <tr key={item["TID"]}>
                                         <td>{item["TID"]}</td>
                                         <td>{item["TName"]}</td>
                                         <td>{item["TDes"]}</td>

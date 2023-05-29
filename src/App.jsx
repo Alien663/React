@@ -5,6 +5,7 @@ import RestfulRoute from './components/RestfulRoute';
 import ParentComponent from './components/Parent';
 import Sample from './components/Sample'
 import Main from './components/Main'
+import MyTestComp from './components/Test';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path='test'>
           <Route path='inheritance' element={ <ParentComponent /> }></Route>
           <Route path='route/:iid' element={ <RestfulRoute />} ></Route>
+          <Route path='test' element={ <MyTestComp />}></Route>
           <Route path='' element={ <div>Test Main Page
                 <br />
                 <a href='/test/inheritance'>Two way binding</a>

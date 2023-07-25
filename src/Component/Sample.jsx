@@ -1,22 +1,22 @@
 import { useDispatch, useSelector } from "react-redux"
-import { SampleThunk } from '../Store/Sample'
+import { SampleThunk, increment } from '../Store/Sample'
 import React, { useState } from "react"
 
 const SampleComponent = () => {
     const dispatch = useDispatch()
     const data = useSelector((state) => state.Sample.data);
-    const [counter, setCounter] = useState(0)
+    const Counts = useSelector((state) => state.Sample.Counts)
 
     function clickButton (){
-        dispatch(SampleThunk({page: counter}))
-        setCounter(counter + 1)
+        dispatch(SampleThunk({page: Counts}))
+        dispatch(increment(Counts+1))
     }
 
     return (
         <div>
             <h1>Hello World!</h1>
             <br />
-            <div>Click {counter} times</div>
+            <div>Click {Counts} times</div>
             <button onClick={() => clickButton()}>Sample Button</button>
             <div>
             {

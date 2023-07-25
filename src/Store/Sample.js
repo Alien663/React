@@ -2,8 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import getSamples from '../Lib/fakeAPI'
 
 const initialSampleState = {
-    req: {},
-    data: []
+    Counts: 0
 }
 
 export const SampleThunk = createAsyncThunk('SetSample', async (req)=> {
@@ -14,14 +13,17 @@ export const SampleThunk = createAsyncThunk('SetSample', async (req)=> {
 const SampleSlice = createSlice({
     name: "Sample",
     initialState: initialSampleState,
-    reducers: {},
+    reducers: {
+        increment: (state, action) => {
+            state.Counts = action.payload
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(SampleThunk.pending, (state, action) => {
                 state.req = action.payload
             })
             .addCase(SampleThunk.fulfilled, (state, action) => {
-                console.log(action)                
                 state.data = action.payload
             })
             .addCase(SampleThunk.rejected, (state, action) => {
@@ -30,5 +32,5 @@ const SampleSlice = createSlice({
     }
 })
 
-export const SampleActions = SampleSlice.actions
+export const { increment } = SampleSlice.actions
 export default SampleSlice.reducer

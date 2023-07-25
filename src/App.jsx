@@ -1,29 +1,28 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css';
 
-import RestfulRoute from './components/RestfulRoute';
-import ParentComponent from './components/Parent';
+import Timer from './components/Timer';
 import Sample from './components/Sample'
+import Parent from './components/Parent';
+import Counter from './components/Counter';
+import FakeCallAPI from './components/FakeCallAPI';
+import Counter_hook from './components/Counter_hook';
+import Counter_class from './components/Counter_class';
 import Main from './components/Main'
-import MyTestComp from './components/Test';
+
 
 function App() {
   return (
-      <Routes>
-        <Route path='test'>
-          <Route path='inheritance' element={ <ParentComponent /> }></Route>
-          <Route path='route/:iid' element={ <RestfulRoute />} ></Route>
-          <Route path='test' element={ <MyTestComp />}></Route>
-          <Route path='' element={ <div>Test Main Page
-                <br />
-                <a href='/test/inheritance'>Two way binding</a>
-                <br />
-                <a href='/test/route/123'>Restful URL</a>
-            </div>}></Route>
-        </Route>
-        <Route path='sample' element={<Sample />}></Route>
-        <Route path='/' element={ <Main /> }></Route>
-      </Routes>
+    <Routes>
+      <Route path='/timer' element={<Timer />}></Route>
+      <Route path='/sample' element={<Sample />}></Route>
+      <Route path='/Parent' element={<Parent />}></Route>
+      <Route path='/counter' element={<Counter />}></Route>
+      <Route path='/counter/hook' element={<Counter_hook />}></Route>
+      <Route path='/counter/class' element={<Counter_class />}></Route>
+      <Route path='/apisample' element={<FakeCallAPI />}></Route>
+      <Route path='/' element={ <Main /> }></Route>
+    </Routes>
   )
 }
 

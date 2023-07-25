@@ -1,11 +1,8 @@
-import React from 'react'
-const ChildComponent = (props) => {
-    const { counter, clickbutton } = props
+import React, { useState } from 'react'
+const Child = (props) => {
+    const {Name} = props
     return(
-        <div>
-            <button onClick={clickbutton}>click me</button>
-            <p>child's counter:{counter}</p>
-        </div>
+        <div>Hello {Name}, I'm Child</div>
     )
 }
-export default ChildComponent
+export default Child

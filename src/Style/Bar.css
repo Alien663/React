@@ -1,0 +1,22 @@
+.App-Bar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2020;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+    height: 62px;
+}
+
+.app-bar-container{
+    margin: 0 0;
+    width: 100%;
+}
+
+.app-list-iconitem{
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 10px;
+    display: block;
+}

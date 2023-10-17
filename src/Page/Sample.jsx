@@ -1,0 +1,71 @@
+import { useDispatch, useSelector } from "react-redux"
+import { SampleThunk, increment } from '../Store/Sample'
+import React, { useEffect, useState } from "react"
+import MyIcon from "../Component/MyIcon"
+import Spinner from 'react-bootstrap/Spinner';
+
+const LoadingData = () => {
+  return (
+    <Spinner animation="border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>
+  )
+}
+
+const SampleComponent = () => {
+  const dispatch = useDispatch()
+  const data = useSelector((state) => state.Sample.data);
+  const Counts = useSelector((state) => state.Sample.Counts)
+
+  const [isLoading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(false)
+  }, [data])
+
+  function clickButton() {
+    setLoading(true)
+    dispatch(SampleThunk({ page: Counts }))
+    dispatch(increment(Counts + 1))
+  }
+
+  return (
+    <div>
+      <h1>Hello World!</h1>
+      <MyIcon iconName="App" />
+      <br />
+      <div>Click {Counts} times</div>
+      <button onClick={() => clickButton()}>Sample Button</button>
+      <div>
+        {
+          isLoading ? <LoadingData></LoadingData> :
+            <div>
+              {
+                data ? <table>
+                  <thead>
+                    <tr>
+                      <td>TID</td>
+                      <td>TName</td>
+                      <td>TDes</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.map(item => (
+                      <tr key={item["TID"]}>
+                        <td>{item["TID"]}</td>
+                        <td>{item["TName"]}</td>
+                        <td>{item["TDes"]}</td>
+                      </tr>
+                    ))
+                    }
+                  </tbody>
+                </table> : <div>no data yet</div>
+              }
+            </div>
+        }
+      </div>
+    </div>
+  )
+}
+
+export default SampleComponent

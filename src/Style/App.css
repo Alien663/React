@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  --app-draw-width: 240px;
+  --app-draw-collaspe-width: 72px;
+  --app-bar-height: 62px;
 }
 
 .App-logo {
@@ -36,3 +39,14 @@
     transform: rotate(360deg);
   }
 }
+
+.Router-OpenList{
+  margin-left: var(--app-draw-width);
+  margin-top: var(--app-bar-height);
+}
+
+.Router-CloseList{
+  margin-left: var(--app-draw-collaspe-width);
+  margin-top: var(--app-bar-height);
+}
+

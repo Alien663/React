@@ -15,7 +15,6 @@ const LeftSideBar = (props) => {
         "--bs-offcanvas-transition": "transform 0s",
         "--bs-offcanvas-zindex": 1000,
         "--bs-offcanvas-width": show ? "240px" : "73px",
-        "overflow-y": show ? "scroll" : "",
         fontSize: "15px"
       }}
     >

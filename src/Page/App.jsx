@@ -93,6 +93,36 @@ function App() {
           Link: "/sample/form",
           Icon: "Table",
         },
+        {
+          Label: "Form",
+          Link: "/sample/form",
+          Icon: "Table",
+        },
+        {
+          Label: "Form",
+          Link: "/sample/form",
+          Icon: "Table",
+        },
+        {
+          Label: "Form",
+          Link: "/sample/form",
+          Icon: "Table",
+        },
+        {
+          Label: "Form",
+          Link: "/sample/form",
+          Icon: "Table",
+        },
+        {
+          Label: "Form",
+          Link: "/sample/form",
+          Icon: "Table",
+        },
+        {
+          Label: "Form",
+          Link: "/sample/form",
+          Icon: "Table",
+        },
       ],
     },
   ];

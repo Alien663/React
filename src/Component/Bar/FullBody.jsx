@@ -1,12 +1,12 @@
 import React from 'react'
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { ListGroup } from 'react-bootstrap'
+import { Button, ListGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import MyIcon from '../MyIcon';
 
 const FullBody = ({ data }) => {
   return (
-    <>
+    <div className='sidebar-fullbody customized-scrollbar'>
       {
         data.map(row => (
           <div>
@@ -14,7 +14,10 @@ const FullBody = ({ data }) => {
               <Offcanvas.Title>
                 <span>{row.Name}</span>
               </Offcanvas.Title>
-              <Offcanvas.Body>
+              <Offcanvas.Body style={{
+                "--bs-offcanvas-padding-y": 0,
+                "--bs-offcanvas-padding-x": 0,
+              }}>
                 {
                   row.Children.map(child => (
                     <ListGroup.Item
@@ -23,19 +26,26 @@ const FullBody = ({ data }) => {
                       action
                       to={child.Link}
                     >
-                      <MyIcon iconName={child.Icon} size={24} />
-                      <span style={{ marginLeft: "7px" }}>{child.Label}</span>
+                      <Button variant="light" style={{
+                        width: "100%",
+                        textAlign: "left",
+                        "--bs-btn-bg": "#ffffff",
+                        "--bs-btn-border-width": "0px"
+                      }}>
+                        <MyIcon iconName={child.Icon} size={24} />
+                        <span style={{ marginLeft: "24px" }}>{child.Label}</span>
+                      </Button>
                     </ListGroup.Item>
                   )
                   )
                 }
               </Offcanvas.Body>
             </div>
-            <hr />
+            <hr style={{ margin: "0" }} />
           </div>
         ))
       }
-    </>
+    </div>
   )
 }
 

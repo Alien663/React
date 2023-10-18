@@ -37,3 +37,31 @@
 .app-sidebar-collapse{
     --bs-offcanvas-width: 73px
 }
+
+.sidebar-fullbody{
+    max-height: calc(100vh - 62px);
+}
+
+.customized-scrollbar{
+    overflow-y: hidden;
+}
+
+.customized-scrollbar:hover{
+    overflow-y: auto;
+}
+
+.customized-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.customized-scrollbar::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.customized-scrollbar::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: rgb(150, 150, 150);
+}

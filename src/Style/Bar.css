@@ -20,3 +20,20 @@
     font-size: 10px;
     display: block;
 }
+
+.app-sidebar{
+    --bs-offcanvas-transition: transform 0s;
+    --bs-offcanvas-zindex: 1000;
+    --bs-offcanvas-width: show ? "240px" : "73px";
+    font-size: 15px;
+    
+}
+
+.app-sidebar-open{
+    --bs-offcanvas-width: 240px;
+    overflow-y: auto;
+}
+
+.app-sidebar-collapse{
+    --bs-offcanvas-width: 73px
+}

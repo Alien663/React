@@ -104,7 +104,7 @@ function App() {
         handleShow={handleShowSideBar}
         data={nestedListData}
       ></LeftSideBar>
-      <div className={isSidebarCollasped ? "Router-OpenList" : "Router-CloseList"}>
+      <div className={`main-body ${isSidebarCollasped ? "Router-OpenList" : "Router-CloseList"}`}>
         <MyRouting></MyRouting>
       </div>
     </div>

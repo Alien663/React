@@ -7,20 +7,24 @@ import MyIcon from '../MyIcon';
 
 import '../../Style/Bar.css'
 
-const HoverablePopover = (props) => {
-  const { titleName, listitems, iconName } = props
-  const [show, setShow] = useState(false)
+const HoverPopover = ({ titleName, listitems, iconName }) => {
+  const [hoverShow, setHoverShow] = useState(false)
+  const [clickShow, setClickShow] = useState(false)
+
+  const handleMouseClick = () => {
+    setClickShow(!clickShow)
+  }
 
   const handleMouseEnter = () => {
-    setShow(true)
+    setHoverShow(true)
   }
   const handleMouseLeave = () => {
-    setShow(false)
+    setHoverShow(false)
   }
 
   return (
     <OverlayTrigger
-      show={show}
+      show={hoverShow || clickShow}
       placement="right-start"
       delay={350}
       style={{
@@ -33,8 +37,8 @@ const HoverablePopover = (props) => {
           <Popover.Body bsPrefix='no'>
             <ListGroup>
               {
-                listitems.map(item => {
-                  return <ListGroup.Item
+                listitems.map(item => (
+                  <ListGroup.Item
                     as={Link}
                     key={item.Label}
                     action
@@ -43,7 +47,7 @@ const HoverablePopover = (props) => {
                     <MyIcon iconName={item.Icon} size={24} />
                     <span style={{ marginLeft: "7px" }}>{item.Label}</span>
                   </ListGroup.Item>
-                })
+                ))
               }
             </ListGroup>
           </Popover.Body>
@@ -53,6 +57,7 @@ const HoverablePopover = (props) => {
         <Button
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          onClick={handleMouseClick}
           variant="light"
           className="align-items-center"
           style={{
@@ -69,4 +74,23 @@ const HoverablePopover = (props) => {
     </OverlayTrigger>
   )
 }
-export default HoverablePopover
+
+const IconBody = ({ data }) => {
+  return (
+    <>
+      {
+        data.map(item => {
+          return <HoverPopover
+            key={item.Name}
+            titleName={item.Name}
+            listitems={item.Children}
+            iconName={item.Icon}
+          >
+          </HoverPopover>
+        })
+      }
+    </>
+  )
+}
+
+export default IconBody

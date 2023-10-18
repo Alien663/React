@@ -11,14 +11,7 @@ function AppBar(props) {
   return (
     <>
       <Navbar className='App-Bar' bg="primary" data-bs-theme="dark" fixed='top' expand="lg" >
-        <div id="app-bar-background" style={{
-          zIndex: -1,
-          height: "62px",
-          opacity: 1,
-          position: "absolute",
-          width: "100%",
-          background: "while",
-        }}></div>
+        <div id="app-bar-background" className='app-bar-background'></div>
         <Container as="div" className='app-bar-container' fluid={true}>
           <Row style={{width: "100%"}}>
             <Col md={4}>

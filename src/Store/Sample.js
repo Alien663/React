@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import getSamples from '../Lib/fakeAPI'
 
 const initialSampleState = {
+    data: [],
     Counts: 0
 }
 

@@ -59,6 +59,7 @@ const HoverPopover = ({ titleName, listitems, iconName }) => {
           onMouseLeave={handleMouseLeave}
           onClick={handleMouseClick}
           variant="light"
+          active={clickShow}
           className="align-items-center"
           style={{
             padding: "16px 0 14px 0",

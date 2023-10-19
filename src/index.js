@@ -2,17 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { Provider } from 'react-redux'
-import App from './Page/App';
 import store from './Store/index'
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
+import {router} from './Component/MyRouting'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <RouterProvider router={router} fallbackElement={<p>Initial Load...</p>}>
+    </RouterProvider>
   </Provider>
 );
 

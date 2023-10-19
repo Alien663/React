@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import AppBar from '../Component/Bar/AppBar';
 import LeftSideBar from '../Component/Bar/LeftSidebar';
-import MyRouting from '../Component/Routing';
 import '../Style/App.css';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   const [isSidebarCollasped, setCollasped] = useState(false)
@@ -94,34 +94,15 @@ function App() {
           Icon: "Table",
         },
         {
-          Label: "Form",
-          Link: "/sample/form",
-          Icon: "Table",
+          Label: "NotFound",
+          Link: "/Hello",
+          Icon: "ClipboardX",
         },
         {
-          Label: "Form",
-          Link: "/sample/form",
-          Icon: "Table",
-        },
-        {
-          Label: "Form",
-          Link: "/sample/form",
-          Icon: "Table",
-        },
-        {
-          Label: "Form",
-          Link: "/sample/form",
-          Icon: "Table",
-        },
-        {
-          Label: "Form",
-          Link: "/sample/form",
-          Icon: "Table",
-        },
-        {
-          Label: "Form",
-          Link: "/sample/form",
-          Icon: "Table",
+          Label: "Permission",
+          Link: "/test/permission",
+          Icon: "BugFill",
+          
         },
       ],
     },
@@ -135,7 +116,7 @@ function App() {
         data={nestedListData}
       ></LeftSideBar>
       <div className={`main-body ${isSidebarCollasped ? "Router-OpenList" : "Router-CloseList"}`}>
-        <MyRouting></MyRouting>
+        <Outlet></Outlet>
       </div>
     </div>
   );

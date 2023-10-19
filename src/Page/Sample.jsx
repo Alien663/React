@@ -12,7 +12,7 @@ const LoadingData = () => {
   )
 }
 
-const SampleComponent = () => {
+const SamplePage = () => {
   const dispatch = useDispatch()
   const data = useSelector((state) => state.Sample.data);
   const Counts = useSelector((state) => state.Sample.Counts)
@@ -41,7 +41,7 @@ const SampleComponent = () => {
           isLoading ? <LoadingData></LoadingData> :
             <div>
               {
-                data ? <table>
+                data.length === 0 ? <div>no data yet</div> : <table>
                   <thead>
                     <tr>
                       <td>TID</td>
@@ -59,7 +59,7 @@ const SampleComponent = () => {
                     ))
                     }
                   </tbody>
-                </table> : <div>no data yet</div>
+                </table>
               }
             </div>
         }
@@ -68,4 +68,4 @@ const SampleComponent = () => {
   )
 }
 
-export default SampleComponent
+export default SamplePage

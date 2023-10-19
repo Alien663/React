@@ -9,7 +9,7 @@ const FullBody = ({ data }) => {
     <div className='sidebar-fullbody customized-scrollbar'>
       {
         data.map(row => (
-          <div>
+          <div key={row.Name}>
             <div style={{ padding: "12px" }}>
               <Offcanvas.Title>
                 <span>{row.Name}</span>

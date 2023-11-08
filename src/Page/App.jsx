@@ -1,119 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux"
+import { AppMenuThunk } from '../Store/AppMenu'
+
 import AppBar from '../Component/Bar/AppBar';
 import LeftSideBar from '../Component/Bar/LeftSidebar';
 import '../Style/App.css';
-import { Outlet } from 'react-router-dom';
 
 function App() {
+  const dispatch = useDispatch()
+  const appMenuData = useSelector((state) => state.AppMenu.menudata)
   const [isSidebarCollasped, setCollasped] = useState(false)
   const handleShowSideBar = () => {
     setCollasped(!isSidebarCollasped);
   };
-  const nestedListData = [
-    {
-      Name: "Menu 1",
-      Icon: "Speedometer2",
-      Children: [
-        {
-          Label: "List Item 1-1",
-          Link: "#hello",
-          Icon: "Person",
-        },
-        {
-          Label: "List Item 1-2",
-          Link: "#hello",
-          Icon: "Puzzle",
-        },
-        {
-          Label: "List Item 1-3",
-          Link: "#hello",
-          Icon: "Grid3x3",
-        },
-        {
-          Label: "List Item 1-4",
-          Link: "#hello",
-          Icon: "People",
-        },
-      ],
-    },
-    {
-      Name: "Menu 2",
-      Icon: "PcDisplay",
-      Children: [
-        {
-          Label: "List Item 2-1",
-          Link: "#hello",
-          Icon: "Laptop",
-        },
-      ],
-    },
-    {
-      Name: "Menu 3",
-      Icon: "PersonPlus",
-      Children: [
-        {
-          Label: "List Item 3-1",
-          Link: "#hello",
-          Icon: "Bell",
-        },
-        {
-          Label: "List Item 3-2",
-          Link: "#test7",
-          Icon: "Key",
-        },
-        {
-          Label: "List Item 3-3",
-          Link: "#hello",
-          Icon: "Lightning",
-        },
-      ],
-    },
-    {
-      Name: "Menu 4",
-      Icon: "Chat",
-      Children: [
-        {
-          Label: "List Item 4-1",
-          Link: "#hello",
-          Icon: "ChatText",
-        },
-      ],
-    },
-    {
-      Name: "Test",
-      Icon: "XDiamond",
-      Children: [
-        {
-          Label: "Sample",
-          Link: "/sample",
-          Icon: "LayoutWtf",
-        },
-        {
-          Label: "Form",
-          Link: "/sample/form",
-          Icon: "Table",
-        },
-        {
-          Label: "NotFound",
-          Link: "/Hello",
-          Icon: "ClipboardX",
-        },
-        {
-          Label: "Permission",
-          Link: "/test/permission",
-          Icon: "BugFill",
-          
-        },
-      ],
-    },
-  ];
+
+  useEffect(() => {
+    dispatch(AppMenuThunk())
+  }, [dispatch])
+
   return (
     <div className='App'>
       <AppBar handleShowList={handleShowSideBar}></AppBar>
       <LeftSideBar
         show={isSidebarCollasped}
         handleShow={handleShowSideBar}
-        data={nestedListData}
+        data={appMenuData}
       ></LeftSideBar>
       <div className={`main-body ${isSidebarCollasped ? "Router-OpenList" : "Router-CloseList"}`}>
         <Outlet></Outlet>

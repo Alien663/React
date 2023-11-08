@@ -7,19 +7,18 @@ import MyIcon from '../MyIcon';
 
 import '../../Style/Bar.css'
 
-const HoverPopover = ({ titleName, listitems, iconName }) => {
+const HoverPopover = ({ titleName, listitems, iconName, rowidx, location, onChangeLocation }) => {
   const [hoverShow, setHoverShow] = useState(false)
   const [clickShow, setClickShow] = useState(false)
-
-  const handleMouseClick = () => {
-    setClickShow(!clickShow)
-  }
 
   const handleMouseEnter = () => {
     setHoverShow(true)
   }
   const handleMouseLeave = () => {
     setHoverShow(false)
+  }
+  const handelMouseClick = () => {
+    setClickShow(!clickShow)
   }
 
   return (
@@ -37,12 +36,17 @@ const HoverPopover = ({ titleName, listitems, iconName }) => {
           <Popover.Body bsPrefix='no'>
             <ListGroup>
               {
-                listitems.map(item => (
+                listitems.map((item, idx) => (
                   <ListGroup.Item
                     as={Link}
                     key={item.Label}
                     action
                     to={item.Link}
+                    onClick={() => onChangeLocation([rowidx,idx])}
+                    active={rowidx === location[0] && idx === location[1]}
+                    style={{
+                      "--bs-list-group-action-hover-bg": "#d3d4d5"
+                    }}
                   >
                     <MyIcon iconName={item.Icon} size={24} />
                     <span style={{ marginLeft: "7px" }}>{item.Label}</span>
@@ -57,7 +61,7 @@ const HoverPopover = ({ titleName, listitems, iconName }) => {
         <Button
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          onClick={handleMouseClick}
+          onClick={handelMouseClick}
           variant="light"
           active={clickShow}
           className="align-items-center"
@@ -76,18 +80,23 @@ const HoverPopover = ({ titleName, listitems, iconName }) => {
   )
 }
 
-const IconBody = ({ data }) => {
+const IconBody = ({ data, location, onChangeLocation }) => {
   return (
     <>
       {
-        data.map(item => {
-          return <HoverPopover
-            key={item.Name}
-            titleName={item.Name}
-            listitems={item.Children}
-            iconName={item.Icon}
-          >
-          </HoverPopover>
+        data.map((item, idx) => {
+          return (
+            <HoverPopover
+              key={item.Name}
+              titleName={item.Name}
+              listitems={item.Children}
+              iconName={item.Icon}
+              rowidx={idx}
+              location={location}
+              onChangeLocation={onChangeLocation}
+            >
+            </HoverPopover>
+          )
         })
       }
     </>

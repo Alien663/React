@@ -2,9 +2,16 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import IconBody from './IconBody';
 import FullBody from './FullBody';
 import '../../Style/Bar.css'
+import { useState } from 'react';
 
 const LeftSideBar = (props) => {
+  const [location, setLocation] = useState([-1, -1])
   const { show, handleShow, data } = props
+
+  const onChangeLocation = ([rowidx, colidx]) => {
+    setLocation([rowidx, colidx])
+  }
+
   return <>
     <Offcanvas
       show={true}
@@ -21,7 +28,8 @@ const LeftSideBar = (props) => {
       <div style={{ minHeight: "62px" }}></div>
       <Offcanvas.Body bsPrefix='no'>
         {
-          show ? <FullBody data={data} /> : <IconBody data={data}/>
+          show ? <FullBody data={data} location={location} onChangeLocation={onChangeLocation} />
+            : <IconBody data={data} location={location} onChangeLocation={onChangeLocation} />
         }
       </Offcanvas.Body>
     </Offcanvas>

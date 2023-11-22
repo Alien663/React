@@ -1,0 +1,43 @@
+.list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.list li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(25, 118, 210);
+    border-radius: 50%;
+    position: relative;
+    font-size: 15px;
+    color: #fff;
+}
+
+.list li+li {
+    margin-left: 100px;
+}
+
+.list li+li::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: rgb(25, 118, 210);
+    top: 0;
+    bottom: 0;
+    left: -100px;
+    margin: auto;
+}
+
+.list li.active~li {
+    background-image: linear-gradient(9deg, #999, #ccc);
+}
+
+.list li.active~li::before {
+    background-color: #999;
+}

@@ -1,11 +1,13 @@
 import { createBrowserRouter, redirect } from "react-router-dom"
 import App from "../Page/App"
+import App2 from "../Page/App2"
 import Main from "../Page/Main"
 import SamplePage from "../Page/Sample"
 import FormSample from "../Page/FormSample"
 import ForbiddenPage from "../Page/Error/Forbidden"
 import ServerErrorPage from "../Page/Error/ServerError"
 import NotFoundPage from "../Page/Error/NotFound"
+import Test from "../Page/Test"
 
 const handleLoginSuccess = async () => {
   return null
@@ -39,6 +41,10 @@ export const router = createBrowserRouter([
         loader: handleLoginFail,
       },
       {
+        path: "test",
+        element: <Test></Test>
+      },
+      {
         path: "error/403",
         element: <ForbiddenPage></ForbiddenPage>
       },
@@ -51,5 +57,9 @@ export const router = createBrowserRouter([
         element: <NotFoundPage></NotFoundPage>
       },
     ]
+  },
+  {
+    path: "/v2",
+    element: <App2></App2>,
   },
 ])

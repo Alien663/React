@@ -3,6 +3,7 @@ import { SampleThunk, increment } from '../Store/Sample'
 import React, { useEffect, useState } from "react"
 import MyIcon from "../Component/MyIcon"
 import Spinner from 'react-bootstrap/Spinner';
+import MyStepper from "../Component/MyStepper";
 
 const LoadingData = () => {
   return (
@@ -63,6 +64,14 @@ const SamplePage = () => {
               }
             </div>
         }
+      </div>
+
+      <div style={{
+        border: "solid",
+        borderColor: "blue",
+      }}>
+        <h2>This is stepper area</h2>
+        <MyStepper data={["item 1", "item 2", "item 3", "item 4"]} step={1}></MyStepper>
       </div>
     </div>
   )

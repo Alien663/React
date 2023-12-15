@@ -97,17 +97,6 @@ const getAppMenu = () => {
                         ],
                     },
                     {
-                        Name: "Menu 4",
-                        Icon: "Chat",
-                        Children: [
-                            {
-                                Label: "List Item 4-1",
-                                Link: "#hello",
-                                Icon: "ChatText",
-                            },
-                        ],
-                    },
-                    {
                         Name: "Test",
                         Icon: "XDiamond",
                         Children: [
@@ -122,15 +111,35 @@ const getAppMenu = () => {
                                 Icon: "Table",
                             },
                             {
-                                Label: "NotFound",
-                                Link: "/Hello",
-                                Icon: "ClipboardX",
+                                Label: "Steper",
+                                Link: "/sample/steper",
+                                Icon: "BarChartSteps",
                             },
                             {
-                                Label: "Permission",
+                                Label: "Recursive Comp",
+                                Link: "/sample/nested",
+                                Icon: "Recycle",
+                            },
+                        ],
+                    },
+                    {
+                        Name: "Http Error",
+                        Icon: "FileEarmarkXFill",
+                        Children: [
+                            {
+                                Label: "403 Forbidden",
                                 Link: "/test/permission",
                                 Icon: "BugFill",
-
+                            },
+                            {
+                                Label: "404 NotFound",
+                                Link: "/Hello",
+                                Icon: "CartXFill",
+                            },
+                            {
+                                Label: "500 Server Error",
+                                Link: "/error/500",
+                                Icon: "ClipboardXFill",
                             },
                         ],
                     },

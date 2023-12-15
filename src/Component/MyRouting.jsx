@@ -2,12 +2,13 @@ import { createBrowserRouter, redirect } from "react-router-dom"
 import App from "../Page/App"
 import App2 from "../Page/App2"
 import Main from "../Page/Main"
-import SamplePage from "../Page/Sample"
-import FormSample from "../Page/FormSample"
 import ForbiddenPage from "../Page/Error/Forbidden"
 import ServerErrorPage from "../Page/Error/ServerError"
 import NotFoundPage from "../Page/Error/NotFound"
-import Test from "../Page/Test"
+import ShowTable from "../Page/Sample/ShowTable"
+import FormCondition from "../Page/Sample/FormCondition"
+import MySteper from '../Page/Sample/Steper'
+import Test from "../Page/Sample/Test"
 
 const handleLoginSuccess = async () => {
   return null
@@ -28,21 +29,25 @@ export const router = createBrowserRouter([
       },
       {
         path: "sample",
-        element: <SamplePage></SamplePage>,
+        element: <ShowTable></ShowTable>,
         loader: handleLoginSuccess,
       },
       {
         path: "sample/form",
-        element: <FormSample></FormSample>
+        element: <FormCondition></FormCondition>
+      },
+      {
+        path: "sample/steper",
+        element: <MySteper></MySteper>
+      },
+      {
+        path: "sample/nested",
+        element: <Test></Test>
       },
       {
         path: "test/permission",
-        element: <SamplePage></SamplePage>,
+        element: <ShowTable></ShowTable>,
         loader: handleLoginFail,
-      },
-      {
-        path: "test",
-        element: <Test></Test>
       },
       {
         path: "error/403",
@@ -57,9 +62,5 @@ export const router = createBrowserRouter([
         element: <NotFoundPage></NotFoundPage>
       },
     ]
-  },
-  {
-    path: "/v2",
-    element: <App2></App2>,
-  },
+  }
 ])

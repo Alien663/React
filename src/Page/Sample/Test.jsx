@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import RecComp from '../Component/RecComp'
+import React from 'react'
+import RecComp from '../../Component/RecComp'
 
 const Test = (props) => {
   const data = [

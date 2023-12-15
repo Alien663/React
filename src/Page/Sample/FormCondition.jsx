@@ -1,15 +1,17 @@
 import React, { useRef } from 'react'
 import { Button, Form, Container, Row, Col } from 'react-bootstrap';
 
-import MyInput from '../Component/Form/MyInput';
-import MySwitch from '../Component/Form/MySwitch';
-import MyRadio from '../Component/Form/MyRadio';
-import MyCheckbox from '../Component/Form/MyCheckbox';
-import MyRange from '../Component/Form/MyRange';
-import MySelect from '../Component/Form/MySelect';
-import MySelectDouble from '../Component/Form/MySelectDouble';
+import MyInput from '../../Component/Form/MyInput';
+import MySwitch from '../../Component/Form/MySwitch';
+import MyRadio from '../../Component/Form/MyRadio';
+import MyCheckbox from '../../Component/Form/MyCheckbox';
+import MyRange from '../../Component/Form/MyRange';
+import MySelect from '../../Component/Form/MySelect';
+import MySelectDouble from '../../Component/Form/MySelectDouble';
+import MyIcon from '../../Component/MyIcon'
+import { CloudArrowDown } from 'react-bootstrap-icons';
 
-const FormSample = (props) => {
+const FormCondition = (props) => {
   const Option1 = [
     {
       Label: "Level 1 : 1",
@@ -92,6 +94,10 @@ const FormSample = (props) => {
     )
   }
 
+  const handleExport = () => {
+    window.alert("Your download started")
+  }
+
   return (
     <Form>
       <Container>
@@ -150,15 +156,18 @@ const FormSample = (props) => {
             <MyInput label="File" type="file" ref={D11} />
           </Col>
           <Col>
-            <Button onClick={handleSearch}>Search</Button>
+            <Button variant='primary' onClick={handleSearch}>
+              <MyIcon iconName="Search" size={23} style={{ marginRight: "10px" }} />Search
+            </Button>
           </Col>
           <Col>
-            <Button onClick={() => { window.alert("I haven't do this function") }}>Export</Button>
+            <Button variant='success' onClick={handleExport}>
+              <MyIcon iconName="CloudArrowDown" size={30} style={{ marginRight: "10px" }} />Export
+            </Button>
           </Col>
-
         </Row>
       </Container>
     </Form>
   )
 }
-export default FormSample
+export default FormCondition

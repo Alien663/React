@@ -65,15 +65,15 @@ const ShowTable = () => {
                         }
                       </tbody>
                     </Table>
+                    <Paging
+                      ref={pageRef}
+                      RowCounts={100}
+                      onChangePage={handleChangePage}
+                    ></Paging>
                   </div>
               }
             </div>
         }
-        <Paging
-          ref={pageRef}
-          RowCounts={100}
-          onChangePage={handleChangePage}
-        ></Paging>
       </div>
     </div>
   )

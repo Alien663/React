@@ -1,0 +1,18 @@
+.my-tag{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.my-tag-hover{}
+
+.my-tag-green{
+    background-color: rgb(25,135,84);
+}
+
+.my-tag-gray{
+    background-color: rgb(108,117,125);
+}
+
+.my-tag-hover:hover{
+    cursor: pointer;
+}

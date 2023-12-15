@@ -1,7 +1,7 @@
 import React from 'react'
 import RecComp from '../../Component/RecComp'
 
-const Test = (props) => {
+const NestedList = (props) => {
   const data = [
     {ID: 1, PID: 0, Label: "root", Layer: 0,},
     {ID: 2, PID: 1, Label: "node 1", Layer: 1,},
@@ -17,4 +17,4 @@ const Test = (props) => {
     </div>
   )
 }
-export default Test
+export default NestedList

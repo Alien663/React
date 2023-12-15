@@ -120,6 +120,11 @@ const getAppMenu = () => {
                                 Link: "/sample/nested",
                                 Icon: "Recycle",
                             },
+                            {
+                                Label: "Tags",
+                                Link: "/sample/tags",
+                                Icon: "Bookmark",
+                            },
                         ],
                     },
                     {

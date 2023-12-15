@@ -1,6 +1,5 @@
 import { createBrowserRouter, redirect } from "react-router-dom"
 import App from "../Page/App"
-import App2 from "../Page/App2"
 import Main from "../Page/Main"
 import ForbiddenPage from "../Page/Error/Forbidden"
 import ServerErrorPage from "../Page/Error/ServerError"
@@ -8,7 +7,8 @@ import NotFoundPage from "../Page/Error/NotFound"
 import ShowTable from "../Page/Sample/ShowTable"
 import FormCondition from "../Page/Sample/FormCondition"
 import MySteper from '../Page/Sample/Steper'
-import Test from "../Page/Sample/Test"
+import NestedList from "../Page/Sample/NestedList"
+import Tags from "../Page/Sample/Tags"
 
 const handleLoginSuccess = async () => {
   return null
@@ -42,7 +42,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "sample/nested",
-        element: <Test></Test>
+        element: <NestedList></NestedList>
+      },
+      {
+        path: "sample/tags",
+        element: <Tags></Tags>
       },
       {
         path: "test/permission",

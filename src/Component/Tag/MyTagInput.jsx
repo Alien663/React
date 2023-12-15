@@ -1,4 +1,5 @@
 import { Badge } from "react-bootstrap"
+import { Form } from "react-bootstrap"
 import '../../Style/Tag.css'
 
 const MyTagInput = ({ onEnterPress, ...props }) => {
@@ -9,12 +10,15 @@ const MyTagInput = ({ onEnterPress, ...props }) => {
       className={["my-tag-gray", "my-tag"]}
       {...props}
     >
-      <input onKeyDown={(ev) => {
-        if (ev.key === "Enter"){
-          onEnterPress(ev.nativeEvent.target.value)
-          ev.nativeEvent.target.value = ""
-        }
-      }} />
+      <Form.Control
+        type="text"
+        style={{ maxHeight: "25px"}}
+        onKeyDown={(ev) => {
+          if (ev.key === "Enter") {
+            onEnterPress(ev.nativeEvent.target.value)
+            ev.nativeEvent.target.value = ""
+          }
+        }} />
     </Badge>
   )
 }

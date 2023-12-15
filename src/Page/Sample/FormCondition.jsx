@@ -9,7 +9,6 @@ import MyRange from '../../Component/Form/MyRange';
 import MySelect from '../../Component/Form/MySelect';
 import MySelectDouble from '../../Component/Form/MySelectDouble';
 import MyIcon from '../../Component/MyIcon'
-import { CloudArrowDown } from 'react-bootstrap-icons';
 
 const FormCondition = (props) => {
   const Option1 = [

@@ -36,7 +36,6 @@ const ShowTable = () => {
 
   return (
     <div>
-      <br></br>
       <Button variant='primary' onClick={clickButton}>
         <MyIcon iconName="Search" size={23} style={{ marginRight: "10px" }} />Search
       </Button>

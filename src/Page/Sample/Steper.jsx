@@ -22,7 +22,6 @@ const Steper = (props) => {
 
   return (
     <>
-      <br></br>
       <MyStepper data={data} step={step}></MyStepper>
       <div>
         <Button variant="outline-primary" onClick={lastStep}>Back</Button>

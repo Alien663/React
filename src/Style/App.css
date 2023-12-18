@@ -40,7 +40,7 @@
 }
 
 .main-body{
-  margin-top: var(--app-bar-height);
+  margin-top: calc(var(--app-bar-height));
   background-color: #F3F6F9;
   min-height: calc(100vh - var(--app-bar-height));
 }

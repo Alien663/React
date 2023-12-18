@@ -3,15 +3,17 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const MyRadio = forwardRef(({data, label, labelWidth=2, inputWidth=10}, ref) => {
+const MyRadio = forwardRef(({data, label, offset=2}, ref) => {
     const onRadio = ({target:{value}}) => {
         ref.current = value
   	}
 
     return(
         <Form.Group as={Row} className="mb-3" controlId={`form${label}`}>
-          <Form.Label column sm={labelWidth}>{label}</Form.Label>
-          <Col sm={inputWidth}>
+          <Col md={offset}>
+          <Form.Label>{label}</Form.Label>
+          </Col>
+          <Col md={12-offset}>
           {
             data.map(item => {
                 return <Form.Check 

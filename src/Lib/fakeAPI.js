@@ -76,12 +76,12 @@ const getAppMenu = () => {
                         ],
                     },
                     {
-                        Name: "Menu 3",
+                        Name: "Test",
                         Icon: "PersonPlus",
                         Children: [
                             {
-                                Label: "List Item 3-1",
-                                Link: "#hello",
+                                Label: "Button",
+                                Link: "test/button",
                                 Icon: "Bell",
                             },
                             {
@@ -125,12 +125,22 @@ const getAppMenu = () => {
                                 Link: "/sample/tags",
                                 Icon: "Bookmark",
                             },
+                            {
+                                Label: "Buttons",
+                                Link: "/sample/buttons",
+                                Icon: "Bookmark",
+                            },
                         ],
                     },
                     {
                         Name: "Http Error",
                         Icon: "FileEarmarkXFill",
                         Children: [
+                            {
+                                Label: "401 Unauthorized",
+                                Link: "/error/401",
+                                Icon: "DoorClosedFill",
+                            },
                             {
                                 Label: "403 Forbidden",
                                 Link: "/test/permission",

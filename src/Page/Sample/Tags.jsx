@@ -18,10 +18,10 @@ const Tags = () => {
 
   return (
     <>
-      <br></br>
       <div style={{
         border: "solid",
-        borderColor: "#6FF1FA",
+        borderColor: "black",
+        paddingBottom: "10px"
       }}>
         <br></br>
         <h2>Basic Tag</h2>
@@ -32,7 +32,8 @@ const Tags = () => {
       <br></br>
       <div style={{
         border: "solid",
-        borderColor: "#6FF1FA",
+        borderColor: "black",
+        paddingBottom: "10px"
       }}>
         <br></br>
         <h2>Checkbox Tag</h2>
@@ -43,7 +44,8 @@ const Tags = () => {
       <br></br>
       <div style={{
         border: "solid",
-        borderColor: "#6FF1FA",
+        borderColor: "black",
+        paddingBottom: "10px"
       }}>
         <br></br>
         <h2>Add and Remove Tag</h2>

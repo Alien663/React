@@ -28,6 +28,7 @@ function App() {
         data={appMenuData}
       ></LeftSideBar>
       <div className={`main-body ${isSidebarCollasped ? "Router-OpenList" : "Router-CloseList"}`}>
+        <div style={{minHeight: "15px"}}></div>
         <Outlet></Outlet>
       </div>
     </div>

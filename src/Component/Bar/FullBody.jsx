@@ -1,6 +1,8 @@
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import { Button, ListGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/ListGroup'
+
 import MyIcon from '../MyIcon';
 
 const FullBody = ({ data, location, onChangeLocation }) => {

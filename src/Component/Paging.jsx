@@ -1,4 +1,4 @@
-import React, { useState, useRef, forwardRef } from 'react'
+import { useState, useRef, forwardRef } from 'react'
 import Pagination from 'react-bootstrap/Pagination';
 import Form from 'react-bootstrap/Form';
 

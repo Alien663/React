@@ -1,5 +1,3 @@
-import React from 'react'
-
 const RecComp = ({ data, Layer, PID }) => {
   return (
     <div>

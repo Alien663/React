@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { CloseButton } from "react-bootstrap"
+import CloseButton from "react-bootstrap/CloseButton"
+
 import MyTag from "../../Component/Tag/MyTag"
 import MyTagCheckbox from "../../Component/Tag/MyTagCheckbox"
 import MyTagInput from "../../Component/Tag/MyTagInput"

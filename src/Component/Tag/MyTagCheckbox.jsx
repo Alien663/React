@@ -1,15 +1,15 @@
 import { useState } from "react"
-import { Badge } from "react-bootstrap"
+import Badge from "react-bootstrap/Badge"
 
-const MyTagCheckbox = ({checked, label, children, ...props}) => {
+const MyTagCheckbox = ({ checked, label, children, ...props }) => {
   const [isCheck, setIsCheck] = useState(checked)
-  
+
   return (
-    <Badge 
+    <Badge
       bg="none"
       pill
-      className={[isCheck? "my-tag-green" : "my-tag-gray", "my-tag", "my-tag-hover"]}
-      onClick={() => {setIsCheck(!isCheck)}}
+      className={[isCheck ? "my-tag-green" : "my-tag-gray", "my-tag", "my-tag-hover"]}
+      onClick={() => { setIsCheck(!isCheck) }}
       {...props}
     >
       {label}

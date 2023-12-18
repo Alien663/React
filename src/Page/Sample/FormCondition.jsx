@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { Button, Form, Container, Row, Col } from 'react-bootstrap';
 
 import MyInput from '../../Component/Form/MyInput';

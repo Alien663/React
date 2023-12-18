@@ -1,5 +1,6 @@
-import { Badge } from "react-bootstrap"
-import { Form } from "react-bootstrap"
+import Badge from "react-bootstrap/Badge"
+import Form from "react-bootstrap/Form"
+
 import '../../Style/Tag.css'
 
 const MyTagInput = ({ onEnterPress, ...props }) => {
@@ -12,7 +13,7 @@ const MyTagInput = ({ onEnterPress, ...props }) => {
     >
       <Form.Control
         type="text"
-        style={{ maxHeight: "25px"}}
+        style={{ maxHeight: "25px" }}
         onKeyDown={(ev) => {
           if (ev.key === "Enter") {
             onEnterPress(ev.nativeEvent.target.value)

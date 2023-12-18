@@ -97,21 +97,21 @@ const getAppMenu = () => {
                         ],
                     },
                     {
-                        Name: "Test",
+                        Name: "Samples",
                         Icon: "XDiamond",
                         Children: [
                             {
-                                Label: "Sample",
+                                Label: "Show Table",
                                 Link: "/sample",
                                 Icon: "LayoutWtf",
                             },
                             {
-                                Label: "Form",
+                                Label: "Form Condition",
                                 Link: "/sample/form",
                                 Icon: "Table",
                             },
                             {
-                                Label: "Steper",
+                                Label: "Stepper",
                                 Link: "/sample/steper",
                                 Icon: "BarChartSteps",
                             },

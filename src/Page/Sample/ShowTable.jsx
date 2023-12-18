@@ -1,6 +1,9 @@
 import { useEffect, useState, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Table, Spinner, Button } from "react-bootstrap";
+import Table from 'react-bootstrap/Table'
+import Spinner from "react-bootstrap/Spinner";
+import Button from 'react-bootstrap/Button'
+
 import { SampleThunk, increment } from '../../Store/Sample'
 import MyIcon from '../../Component/MyIcon'
 import Paging from '../../Component/Paging'

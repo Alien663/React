@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+
 import IconBody from './IconBody';
 import FullBody from './FullBody';
 import '../../Style/Bar.css'
-import { useState } from 'react';
 
 const LeftSideBar = (props) => {
   const [location, setLocation] = useState([-1, -1])

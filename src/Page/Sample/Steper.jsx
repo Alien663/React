@@ -1,6 +1,7 @@
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
+
 import MyStepper from "../../Component/MyStepper";
-import { Button } from "react-bootstrap";
 
 const data = ["item 1", "item 2", "item 3", "item 4"]
 

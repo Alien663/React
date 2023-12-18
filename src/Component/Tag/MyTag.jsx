@@ -1,4 +1,5 @@
-import { Badge } from "react-bootstrap"
+import Badge from "react-bootstrap/Badge"
+
 import '../../Style/Tag.css'
 
 const MyTag = ({ checked, label, children, ...props }) => {

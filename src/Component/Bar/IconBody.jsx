@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import { ListGroup } from 'react-bootstrap'
-import Button from 'react-bootstrap/Button';
-import { OverlayTrigger, Popover } from "react-bootstrap"
+import { useState } from 'react'
 import { Link } from 'react-router-dom';
-import MyIcon from '../MyIcon';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
 
+import MyIcon from '../MyIcon';
 import '../../Style/Bar.css'
 
 const HoverPopover = ({ titleName, listitems, iconName, rowidx, location, onChangeLocation }) => {

@@ -1,8 +1,14 @@
-import { Nav, Navbar, Container, Row, Col, Dropdown, DropdownButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import MyIcon from '../MyIcon';
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
+import Dropdown  from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
+import MyIcon from '../MyIcon';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Style/Bar.css'
 
 function AppBar(props) {
@@ -17,9 +23,8 @@ function AppBar(props) {
             <Col md={4}>
               <Nav>
                 <Nav.Link onClick={handleShowList}>
-                  <MyIcon iconName="List" color="white" size={30} />
+                  <MyIcon iconName="List" color="white" size={30}></MyIcon>
                 </Nav.Link>
-
                 <Navbar.Brand as={Link} to="/" >
                   <MyIcon iconName="Gear" /> {' '} React Bootstrap
                 </Navbar.Brand>

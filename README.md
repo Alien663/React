@@ -39,32 +39,60 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### `npm run analyze`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Launches the Source map explorer analyzes JavaScript bundles using the source maps. This helps you understand where code bloat is coming from.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Before Build Project
 
-### Code Splitting
+### `onAfterSetupMiddleware is deprecated` or `onBeforeSetupMiddle is deprecated`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Find the file : `node_modueles/react-scripts/config/webpackDevServer.config.js`
 
-### Analyzing the Bundle Size
+Go to the bottom of the file and find scripts as bellow:
+```js
+onBeforeSetupMiddleware(devServer) {
+    // Keep `evalSourceMapMiddleware`
+    // middlewares before `redirectServedPath` otherwise will not have any effect
+    // This lets us fetch source contents from webpack for the error overlay
+    devServer.app.use(evalSourceMapMiddleware(devServer));
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    if (fs.existsSync(paths.proxySetup)) {
+        // This registers user provided middleware for proxy reasons
+        require(paths.proxySetup)(devServer.app);
+    }
+},
+onAfterSetupMiddleware(devServer) {
+    // Redirect to `PUBLIC_URL` or `homepage` from `package.json` if url not match
+    devServer.app.use(redirectServedPath(paths.publicUrlOrPath));
 
-### Making a Progressive Web App
+    // This service worker file is effectively a 'no-op' that will reset any
+    // previous service worker registered for the same host:port combination.
+    // We do this in development to avoid hitting the production cache if
+    // it used the same host and port.
+    // https://github.com/facebook/create-react-app/issues/2272#issuecomment-302832432
+    devServer.app.use(noopServiceWorkerMiddleware(paths.publicUrlOrPath));
+},
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Replace as :
 
-### Advanced Configuration
+```js
+setupMiddlewares: (middlewares, devServer) => {
+    if (!devServer) {
+        throw new Error('webpack-dev-server is not defined')
+    }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    if (fs.existsSync(paths.proxySetup)) {
+        require(paths.proxySetup)(devServer.app)
+    }
 
-### Deployment
+    middlewares.push(
+        evalSourceMapMiddleware(devServer),
+        redirectServedPath(paths.publicUrlOrPath),
+        noopServiceWorkerMiddleware(paths.publicUrlOrPath)
+    )
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    return middlewares;
+},
+```

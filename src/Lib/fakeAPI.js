@@ -1,3 +1,126 @@
+const AppMenuData = [
+    {
+        Name: "Orders",
+        Icon: "Speedometer2",
+        Children: [
+            {
+                Label: "Order Manage",
+                Link: "orders/manage",
+                Icon: "Person",
+            },
+            {
+                Label: "List Item 1-2",
+                Link: "#hello",
+                Icon: "Puzzle",
+            },
+            {
+                Label: "List Item 1-3",
+                Link: "#hello",
+                Icon: "Grid3x3",
+            },
+            {
+                Label: "List Item 1-4",
+                Link: "#hello",
+                Icon: "People",
+            },
+        ],
+    },
+    {
+        Name: "Menu 2",
+        Icon: "PcDisplay",
+        Children: [
+            {
+                Label: "List Item 2-1",
+                Link: "#hello",
+                Icon: "Laptop",
+            },
+        ],
+    },
+    {
+        Name: "Test",
+        Icon: "PersonPlus",
+        Children: [
+            {
+                Label: "Button",
+                Link: "test/button",
+                Icon: "Bell",
+            },
+            {
+                Label: "List Item 3-2",
+                Link: "#test7",
+                Icon: "Key",
+            },
+            {
+                Label: "List Item 3-3",
+                Link: "#hello",
+                Icon: "Lightning",
+            },
+        ],
+    },
+    {
+        Name: "Samples",
+        Icon: "XDiamond",
+        Children: [
+            {
+                Label: "Show Table",
+                Link: "/sample",
+                Icon: "LayoutWtf",
+            },
+            {
+                Label: "Form Condition",
+                Link: "/sample/form",
+                Icon: "Table",
+            },
+            {
+                Label: "Stepper",
+                Link: "/sample/steper",
+                Icon: "BarChartSteps",
+            },
+            {
+                Label: "Recursive Comp",
+                Link: "/sample/nested",
+                Icon: "Recycle",
+            },
+            {
+                Label: "Tags",
+                Link: "/sample/tags",
+                Icon: "Bookmark",
+            },
+            {
+                Label: "Buttons",
+                Link: "/sample/buttons",
+                Icon: "Bookmark",
+            },
+        ],
+    },
+    {
+        Name: "Http Error",
+        Icon: "FileEarmarkXFill",
+        Children: [
+            {
+                Label: "401 Unauthorized",
+                Link: "/error/401",
+                Icon: "DoorClosedFill",
+            },
+            {
+                Label: "403 Forbidden",
+                Link: "/test/permission",
+                Icon: "BugFill",
+            },
+            {
+                Label: "404 NotFound",
+                Link: "/Hello",
+                Icon: "CartXFill",
+            },
+            {
+                Label: "500 Server Error",
+                Link: "/error/500",
+                Icon: "ClipboardXFill",
+            },
+        ],
+    },
+]
+
 const getSamples = (req) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -37,128 +160,7 @@ const getAppMenu = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve({
-                "body": [
-                    {
-                        Name: "Menu 1",
-                        Icon: "Speedometer2",
-                        Children: [
-                            {
-                                Label: "List Item 1-1",
-                                Link: "#hello",
-                                Icon: "Person",
-                            },
-                            {
-                                Label: "List Item 1-2",
-                                Link: "#hello",
-                                Icon: "Puzzle",
-                            },
-                            {
-                                Label: "List Item 1-3",
-                                Link: "#hello",
-                                Icon: "Grid3x3",
-                            },
-                            {
-                                Label: "List Item 1-4",
-                                Link: "#hello",
-                                Icon: "People",
-                            },
-                        ],
-                    },
-                    {
-                        Name: "Menu 2",
-                        Icon: "PcDisplay",
-                        Children: [
-                            {
-                                Label: "List Item 2-1",
-                                Link: "#hello",
-                                Icon: "Laptop",
-                            },
-                        ],
-                    },
-                    {
-                        Name: "Test",
-                        Icon: "PersonPlus",
-                        Children: [
-                            {
-                                Label: "Button",
-                                Link: "test/button",
-                                Icon: "Bell",
-                            },
-                            {
-                                Label: "List Item 3-2",
-                                Link: "#test7",
-                                Icon: "Key",
-                            },
-                            {
-                                Label: "List Item 3-3",
-                                Link: "#hello",
-                                Icon: "Lightning",
-                            },
-                        ],
-                    },
-                    {
-                        Name: "Samples",
-                        Icon: "XDiamond",
-                        Children: [
-                            {
-                                Label: "Show Table",
-                                Link: "/sample",
-                                Icon: "LayoutWtf",
-                            },
-                            {
-                                Label: "Form Condition",
-                                Link: "/sample/form",
-                                Icon: "Table",
-                            },
-                            {
-                                Label: "Stepper",
-                                Link: "/sample/steper",
-                                Icon: "BarChartSteps",
-                            },
-                            {
-                                Label: "Recursive Comp",
-                                Link: "/sample/nested",
-                                Icon: "Recycle",
-                            },
-                            {
-                                Label: "Tags",
-                                Link: "/sample/tags",
-                                Icon: "Bookmark",
-                            },
-                            {
-                                Label: "Buttons",
-                                Link: "/sample/buttons",
-                                Icon: "Bookmark",
-                            },
-                        ],
-                    },
-                    {
-                        Name: "Http Error",
-                        Icon: "FileEarmarkXFill",
-                        Children: [
-                            {
-                                Label: "401 Unauthorized",
-                                Link: "/error/401",
-                                Icon: "DoorClosedFill",
-                            },
-                            {
-                                Label: "403 Forbidden",
-                                Link: "/test/permission",
-                                Icon: "BugFill",
-                            },
-                            {
-                                Label: "404 NotFound",
-                                Link: "/Hello",
-                                Icon: "CartXFill",
-                            },
-                            {
-                                Label: "500 Server Error",
-                                Link: "/error/500",
-                                Icon: "ClipboardXFill",
-                            },
-                        ],
-                    },
-                ]
+                "body": [...AppMenuData]
             })
         }, 500)
     })

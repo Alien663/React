@@ -13,6 +13,8 @@ import NestedList from "../Page/Sample/NestedList"
 import Tags from "../Page/Sample/Tags"
 import CustomButton from "../Page/Test/CustomButton"
 import ShowButtons from "../Page/Sample/Buttons"
+import LoginPage from "../Page/Login"
+import Orders from "../Page/Orders"
 
 const handleLoginSuccess = async () => {
   return null
@@ -27,60 +29,21 @@ export const router = createBrowserRouter([
     path: "/",
     element: <App></App>,
     children: [
-      {
-        path: "/",
-        element: <Main></Main>
-      },
-      {
-        path: "sample",
-        element: <ShowTable></ShowTable>,
-        loader: handleLoginSuccess,
-      },
-      {
-        path: "sample/form",
-        element: <FormCondition></FormCondition>
-      },
-      {
-        path: "sample/steper",
-        element: <MySteper></MySteper>
-      },
-      {
-        path: "sample/nested",
-        element: <NestedList></NestedList>
-      },
-      {
-        path: "sample/tags",
-        element: <Tags></Tags>
-      },
-      {
-        path: "sample/buttons",
-        element: <ShowButtons></ShowButtons>
-      },
-      {
-        path: "test/permission",
-        element: <ShowTable></ShowTable>,
-        loader: handleLoginFail,
-      },
-      {
-        path: "test/button",
-        element: <CustomButton></CustomButton>
-      },
-      {
-        path: "error/401",
-        element: <Unauthorized></Unauthorized>
-      },
-      {
-        path: "error/403",
-        element: <ForbiddenPage></ForbiddenPage>
-      },
-      {
-        path: "error/500",
-        element: <ServerErrorPage></ServerErrorPage>
-      },
-      {
-        path: "*",
-        element: <NotFoundPage></NotFoundPage>
-      },
+      { path: "/", element: <Main></Main> },
+      { path: "sample", element: <ShowTable></ShowTable>, loader: handleLoginSuccess, },
+      { path: "sample/form", element: <FormCondition></FormCondition> },
+      { path: "sample/steper", element: <MySteper></MySteper> },
+      { path: "sample/nested", element: <NestedList></NestedList> },
+      { path: "sample/tags", element: <Tags></Tags> },
+      { path: "sample/buttons", element: <ShowButtons></ShowButtons> },
+      { path: "orders/manage", element: <Orders></Orders> },
+      { path: "login", element: <LoginPage></LoginPage> },
+      { path: "test/permission", element: <ShowTable></ShowTable>, loader: handleLoginFail, },
+      { path: "test/button", element: <CustomButton></CustomButton> },
+      { path: "error/401", element: <Unauthorized></Unauthorized> },
+      { path: "error/403", element: <ForbiddenPage></ForbiddenPage> },
+      { path: "error/500", element: <ServerErrorPage></ServerErrorPage> },
+      { path: "*", element: <NotFoundPage></NotFoundPage> },
     ]
   }
 ])

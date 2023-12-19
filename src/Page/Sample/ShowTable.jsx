@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Table from 'react-bootstrap/Table'
-import Spinner from "react-bootstrap/Spinner";
+import Spinner from "react-bootstrap/Spinner"
 import Button from 'react-bootstrap/Button'
 
 import { SampleThunk, increment } from '../../Store/Sample'

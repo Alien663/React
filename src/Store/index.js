@@ -1,11 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
-import SampleReducer from "./Sample";
-import AppMenuReducer from './AppMenu'
+import Sample from "./Sample";
+import AppMenu from './AppMenu'
+import Member from "./Member";
+import Order from './Order'
 
 const rootReducer = () =>({
-    Sample: SampleReducer,
-    AppMenu: AppMenuReducer,
+    Sample,
+    AppMenu,
+    Member,
+    Order,
 })
 
 const store = configureStore({

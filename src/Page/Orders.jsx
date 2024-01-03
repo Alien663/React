@@ -34,12 +34,12 @@ const OrderDialog = ({ OID, show, handleClose }) => {
   }
 
   return (
-    <Modal centered show={show} onHide={handleClose} size='xl'>
+    <Modal show={show} centered scrollable onHide={handleClose} size='xl' style={{ maxHeight: "800px", marginTop: "80px" }}>
       {
         isLoading ? <Spinner animation="border" role="status"></Spinner> :
           <>
             <Modal.Header closeButton>
-              <Modal.Title>{data.OrderID}</Modal.Title>
+              <Modal.Title>Order Data</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <Row>
@@ -156,15 +156,24 @@ const OrderDialog = ({ OID, show, handleClose }) => {
                 </Col>
                 <Col></Col>
               </Row>
-              <Form.Group className="mb-3" controlId="ShipAddress">
-                <Form.Label>Ship Address</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Ship Address"
-                  value={data.ShipAddress}
-                  onChange={(el) => dispatch(handleChangeInput({ data: el.target.value, ColName: "ShipAddress" }))}
-                />
-              </Form.Group>
+
+              <Row>
+                <Form.Group className="mb-3" controlId="ShipAddress">
+                  <Form.Label>Ship Address</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Ship Address"
+                    value={data.ShipAddress}
+                    onChange={(el) => dispatch(handleChangeInput({ data: el.target.value, ColName: "ShipAddress" }))}
+                  />
+                </Form.Group>
+              </Row>
+            </Modal.Body>
+
+            <Modal.Header>
+              <Modal.Title>Employee Data</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
               <Row>
                 <Col>
                   <Form.Group className="mb-3" controlId="Employee">
@@ -244,6 +253,7 @@ const Orders = (props) => {
   const Shipper = useRef("")
   const OrderDate = useRef("")
   const ordersdata = useSelector((state) => { return state.Order.data })
+  const isLoading = useSelector((state) => { return state.Order.isLoading })
 
   const Options = [
     { Label: "Speedy Express", Value: "1" },
@@ -286,32 +296,33 @@ const Orders = (props) => {
           <Accordion.Header>Result</Accordion.Header>
           <Accordion.Body>
             {
-              ordersdata.length > 0 ? <Table striped bordered hover>
-                <thead>
-                  <tr>
-                    <th>Customer</th>
-                    <th>Employee</th>
-                    <th>Order Date</th>
-                    <th>Shipper</th>
-                    <th>Ship Date</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    ordersdata.map(item => (
-                      <tr key={item.OrderID}>
-                        <td>{item.CustomerID}</td>
-                        <td>{item.Employee}</td>
-                        <td>{new Date(item.OrderDate).toDateString()}</td>
-                        <td>{item.ShipName}</td>
-                        <td>{new Date(item.ShippedDate).toDateString()}</td>
-                        <td><Button onClick={() => OpenUpdateWindow(item.OrderID)}>Update</Button></td>
-                      </tr>
-                    ))
-                  }
-                </tbody>
-              </Table> : <div>no data</div>
+              isLoading ? <Spinner animation="border" role="status"></Spinner> :
+                ordersdata.length > 0 ? <Table striped bordered hover>
+                  <thead>
+                    <tr>
+                      <th style={{ backgroundColor: "#a8a8a8", color: "white"}}>Customer</th>
+                      <th style={{ backgroundColor: "#a8a8a8", color: "white"}}>Employee</th>
+                      <th style={{ backgroundColor: "#a8a8a8", color: "white"}}>Order Date</th>
+                      <th style={{ backgroundColor: "#a8a8a8", color: "white"}}>Shipper</th>
+                      <th style={{ backgroundColor: "#a8a8a8", color: "white"}}>Ship Date</th>
+                      <th style={{ backgroundColor: "#a8a8a8", color: "white"}}></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {
+                      ordersdata.map(item => (
+                        <tr key={item.OrderID}>
+                          <td>{item.CustomerID}</td>
+                          <td>{item.Employee}</td>
+                          <td>{new Date(item.OrderDate).toDateString()}</td>
+                          <td>{item.ShipName}</td>
+                          <td>{new Date(item.ShippedDate).toDateString()}</td>
+                          <td><Button onClick={() => OpenUpdateWindow(item.OrderID)}>Update</Button></td>
+                        </tr>
+                      ))
+                    }
+                  </tbody>
+                </Table> : <div>no data</div>
             }
           </Accordion.Body>
         </Accordion.Item>

@@ -1,20 +1,15 @@
-import { forwardRef } from 'react'
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const MySelect = forwardRef(({ data, label, offset = 2 }, ref) => {
-  const onInput = ({ target: { value } }) => {
-    ref.current = value
-  }
-
+const MySelect = ({ data, label, offset = 2, value, onChangeValue }) => {
   return (
     <Form.Group as={Row} className="mb-3" controlId={`form${label}`}>
       <Col md={offset}>
         <Form.Label>{label}</Form.Label>
       </Col>
       <Col md={12 - offset}>
-        <Form.Select name={label} onChange={onInput}>
+        <Form.Select name={label} value={value} onChange={(e) => onChangeValue(e.target.value)}>
           <option value="" defaultValue>Choose</option>
           {
             data.map(item => {
@@ -25,6 +20,6 @@ const MySelect = forwardRef(({ data, label, offset = 2 }, ref) => {
       </Col>
     </Form.Group>
   )
-})
+}
 
 export default MySelect

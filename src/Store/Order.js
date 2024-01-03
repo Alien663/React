@@ -5,15 +5,16 @@ const initialOrderState = {
     req: {},
     data: [],
     OID: "",
-    OrderDetail: {}
+    OrderDetail: {},
+    isLoading: false,
 }
 
-export const OrdersThunk = createAsyncThunk('SetOrders', async (req)=> {
+export const OrdersThunk = createAsyncThunk('GetOrders', async (req)=> {
     const res = await getOrders(req)
     return res.body
 })
 
-export const OrderDetailThunk = createAsyncThunk('SetOrderDetail', async (OID)=> {
+export const OrderDetailThunk = createAsyncThunk('GetOrderDetail', async (OID)=> {
     const res = await getOrder(OID)
     return res.body
 })
@@ -29,10 +30,12 @@ const OrderSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(OrdersThunk.pending, (state, action) => {
+                state.isLoading = true                
                 state.req = action.meta.arg
             })
             .addCase(OrdersThunk.fulfilled, (state, action) => {
                 state.data = action.payload
+                state.isLoading = false
             })
             .addCase(OrdersThunk.rejected, (state, action) => {
                 window.alert("Call API Fail")

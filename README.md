@@ -50,6 +50,7 @@ Launches the Source map explorer analyzes JavaScript bundles using the source ma
 Find the file : `node_modueles/react-scripts/config/webpackDevServer.config.js`
 
 Go to the bottom of the file and find scripts as bellow:
+
 ```js
 onBeforeSetupMiddleware(devServer) {
     // Keep `evalSourceMapMiddleware`
